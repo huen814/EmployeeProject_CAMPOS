@@ -1,5 +1,6 @@
 package version1;
-
+import version2.MyDate;
+import version2.Name;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -13,7 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HourlyEmployee houremp = new HourlyEmployee(101, "Alice Smith", 45.00f, 200.00);
+        Name aliceName = new Name("Alice","M","Smith");
+        MyDate aliceBirth = new MyDate(12,9,2004);
+        HourlyEmployee houremp = new HourlyEmployee(101, aliceName,aliceBirth, 45.00f, 200.00);
 
         System.out.println("---Hourly Employee Test--");
         System.out.println("[displayHourlyEmployee()]");

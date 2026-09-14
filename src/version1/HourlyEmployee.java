@@ -4,6 +4,8 @@
  */
 package version1;
 
+import version2.MyDate;
+import version2.Name;
 /**
  *
  * @author User
@@ -11,27 +13,31 @@ package version1;
 public class HourlyEmployee {
 
     private int empID;
-    private String empName;
+    private Name empName;
+    private MyDate birthDate;
     private float totalHoursWorked;
     private double ratePerHour;
 
     public HourlyEmployee() {
         this.empID = 0;
-        this.empName = "N/A";
+        this.empName = new Name("N/A","N/A","N/A");
+        this.birthDate = new MyDate(1,1,2000);
         this.totalHoursWorked = 0.0f;
         this.ratePerHour = 0.0;
     }
 
-    public HourlyEmployee(int empID, String empName) {
+    public HourlyEmployee(int empID, Name empName,MyDate birthDate) {
         this.empID = empID;
         this.empName = empName;
+        this.birthDate = birthDate;
         this.totalHoursWorked = 0.0f;
         this.ratePerHour = 0.0;
     }
 
-    public HourlyEmployee(int empID, String empName, float totalHoursWorked, double ratePerHour) {
+    public HourlyEmployee(int empID, Name empName, MyDate birthDate, float totalHoursWorked, double ratePerHour) {
         this.empID = empID;
         this.empName = empName;
+        this.birthDate = birthDate;
         this.totalHoursWorked = totalHoursWorked;
         this.ratePerHour = ratePerHour;
     }
@@ -44,12 +50,20 @@ public class HourlyEmployee {
         this.empID = empID;
     }
 
-    public String getEmpName() {
+    public Name getEmpName() {
         return empName;
     }
 
-    public void setEmpName(String empName) {
+    public void setEmpName(Name empName) {
         this.empName = empName;
+    }
+
+    public MyDate getBirthDate(){
+        return birthDate;
+    }
+
+    public void setBirthDate(MyDate birthDate){
+        this.birthDate = birthDate;
     }
 
     public float getTotalHoursWorked() {
@@ -69,23 +83,33 @@ public class HourlyEmployee {
     }
 
     public double computeSalary() {
+        double salary = 0;
         if (this.totalHoursWorked <= 40) {
-            return this.totalHoursWorked * this.ratePerHour;
+            salary = this.totalHoursWorked * this.ratePerHour;
         } else {
             double regularPay = 40 * this.ratePerHour;
             double overtimeHours = this.totalHoursWorked - 40;
             double overtimePay = overtimeHours * (this.ratePerHour * 1.5);
-            return regularPay + overtimePay;
+            salary = regularPay + overtimePay;
         }
+
+        if(this.birthDate != null && this.birthDate.month == 9){
+            salary += 5000;
+        }
+
+        return salary;
     }
 
     @Override
     public String toString(){
-        return String.format("HourlyEmployee [ID: %d, Name: %s, Hours: %.2f, Rate:  %.2f, Total Salary:  %.2f]",this.empID,this.empName,this.totalHoursWorked,this.ratePerHour,this.computeSalary());
+        String fullName = empName.firstname + " " + empName.middleInitial + " " + empName.lastName;
+        return String.format("HourlyEmployee [ID: %d, Name: %s, Hours: %.2f, Rate:  %.2f, Total Salary:  %.2f]",this.empID,fullName,this.totalHoursWorked,this.ratePerHour,this.computeSalary());
     }
 
     public void displayHourlyEmployee() {
-        System.out.printf("ID: %d | Name: %s | Hours:  %.2f | Rate:  %.2f/hr ", this.empID, this.empName, this.totalHoursWorked, this.ratePerHour);
+        String fullName = this.empName.firstname + this.empName.middleInitial + this.empName.lastName;
+
+        System.out.printf("ID: %d | Name: %s | Hours:  %.2f | Rate:  %.2f/hr ", this.empID, fullName, this.totalHoursWorked, this.ratePerHour);
     }
 
 }
