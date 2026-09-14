@@ -1,4 +1,4 @@
-/*
+package version1;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -73,7 +73,7 @@ public class CommissionEmployee {
 
     @Override
     public String toString() {
-        return String.format("CommissionEmployee: [ID: %d, Name: %s, Total Sale: %.2f, Commission Rate: %.2f]",
+        return String.format("version1.CommissionEmployee: [ID: %d, Name: %s, Total Sale: %.2f, Commission Rate: %.2f]",
                 this.empID, this.empName, this.totalSale, this.computeSalary());
     }
 

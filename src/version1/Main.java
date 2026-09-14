@@ -1,5 +1,4 @@
-
-import HourlyEmployee.HourlyEmployee;
+package version1;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

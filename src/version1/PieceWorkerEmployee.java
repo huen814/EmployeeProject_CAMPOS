@@ -1,4 +1,4 @@
-/*
+package version1;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -77,7 +77,7 @@ public class PieceWorkerEmployee {
 
     @Override
     public String toString() {
-        return String.format("PieceWorkerEmployee [ID: %d, Name: %s, Pieces: %d, Rate: %.2f, Total Salary: %.2f]", this.empID, this.empName, this.totalPiecesFinished, this.ratePerPiece, this.computeSalary());
+        return String.format("version1.PieceWorkerEmployee [ID: %d, Name: %s, Pieces: %d, Rate: %.2f, Total Salary: %.2f]", this.empID, this.empName, this.totalPiecesFinished, this.ratePerPiece, this.computeSalary());
     }
 
     public void displayPieceWorkerEmployee() {
