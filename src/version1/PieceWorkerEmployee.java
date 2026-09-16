@@ -2,7 +2,8 @@ package version1;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+import version2.MyDate;
+import version2.Name;
 /**
  *
  * @author User
@@ -10,27 +11,31 @@ package version1;/*
 public class PieceWorkerEmployee {
 
     private int empID;
-    private String empName;
+    private Name empName;
+    private MyDate birthDate;
     private int totalPiecesFinished;
     private double ratePerPiece;
 
     public PieceWorkerEmployee() {
         this.empID = 0;
-        this.empName = "N/A";
+        this.empName = new Name("N/A","N/A","N/A");
+        this.birthDate = new MyDate(1,1,2000);
         this.totalPiecesFinished = 0;
         this.ratePerPiece = 0.0;
     }
 
-    public PieceWorkerEmployee(int empID, String empName) {
+    public PieceWorkerEmployee(int empID, Name empName,MyDate birthDate) {
         this.empID = empID;
         this.empName = empName;
+        this.birthDate = birthDate;
         this.totalPiecesFinished = 0;
         this.ratePerPiece = 0.0;
     }
 
-    public PieceWorkerEmployee(int empID, String empName, int totalPiecesFinished, double ratePerPiece) {
+    public PieceWorkerEmployee(int empID, Name empName, MyDate birthDate, int totalPiecesFinished, double ratePerPiece) {
         this.empID = empID;
         this.empName = empName;
+        this.birthDate = birthDate;
         this.totalPiecesFinished = totalPiecesFinished;
         this.ratePerPiece = ratePerPiece;
     }
@@ -43,12 +48,20 @@ public class PieceWorkerEmployee {
         this.empID = empID;
     }
 
-    public String getEmpName() {
+    public Name getEmpName() {
         return empName;
     }
 
-    public void setEmpName(String empName) {
+    public void setEmpName(Name empName) {
         this.empName = empName;
+    }
+
+    public MyDate getBirthDate(){
+        return birthDate;
+    }
+
+    public void setBirthDate(MyDate birthDate){
+        this.birthDate = birthDate;
     }
 
     public int getTotalPiecesFinished() {
@@ -72,16 +85,22 @@ public class PieceWorkerEmployee {
         int bonusFactor = totalPiecesFinished / 100;
         double bonusPay = bonusFactor * (10 * ratePerPiece);
 
-        return basePay + bonusPay;
+        double salary = basePay + bonusPay;
+
+        if(this.birthDate != null && this.birthDate.month == 9){
+            salary += 500;
+        }
+
+        return salary;
     }
 
     @Override
     public String toString() {
-        return String.format("version1.PieceWorkerEmployee [ID: %d, Name: %s, Pieces: %d, Rate: %.2f, Total Salary: %.2f]", this.empID, this.empName, this.totalPiecesFinished, this.ratePerPiece, this.computeSalary());
+        return String.format("PieceWorkerEmployee [ID: %d, Name: %s, DOB: %s, Pieces: %d, Rate: %.2f, Total Salary: %.2f]", this.empID, this.empName, this.birthDate, this.totalPiecesFinished, this.ratePerPiece, this.computeSalary());
     }
 
     public void displayPieceWorkerEmployee() {
-        System.out.printf("ID: %d | Name: %s | Pieces Finished: %d | Rate/Piece: %.2f", this.empID, this.empName, this.totalPiecesFinished, this.ratePerPiece);
+        System.out.printf("ID: %d | Name: %s | DOB: %s | Pieces Finished: %d | Rate/Piece: %.2f", this.empID, this.empName, this.birthDate,this.totalPiecesFinished, this.ratePerPiece);
 
     }
 

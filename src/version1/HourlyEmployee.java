@@ -103,13 +103,13 @@ public class HourlyEmployee {
     @Override
     public String toString(){
         String fullName = empName.firstname + " " + empName.middleInitial + " " + empName.lastName;
-        return String.format("HourlyEmployee [ID: %d, Name: %s, Hours: %.2f, Rate:  %.2f, Total Salary:  %.2f]",this.empID,fullName,this.totalHoursWorked,this.ratePerHour,this.computeSalary());
+        return String.format("HourlyEmployee [ID: %d, Name: %s, DOB: %s, Hours: %.2f, Rate:  %.2f, Total Salary:  %.2f]",this.empID,fullName,this.birthDate,this.totalHoursWorked,this.ratePerHour,this.computeSalary());
     }
 
     public void displayHourlyEmployee() {
         String fullName = this.empName.firstname + this.empName.middleInitial + this.empName.lastName;
 
-        System.out.printf("ID: %d | Name: %s | Hours:  %.2f | Rate:  %.2f/hr ", this.empID, fullName, this.totalHoursWorked, this.ratePerHour);
+        System.out.printf("ID: %d | Name: %s | DOB: %s | Hours:  %.2f | Rate:  %.2f/hr ", this.empID, fullName,this.birthDate, this.totalHoursWorked, this.ratePerHour);
     }
 
 }

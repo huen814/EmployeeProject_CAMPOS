@@ -9,6 +9,13 @@ public class Name {
         this.firstname = firstname;
         this.middleInitial = middleInitial;
         this.lastName = lastName;
+
+
+    }
+
+    @Override
+    public String toString() {
+        return lastName + ", " + firstname + " " + middleInitial + ".";
     }
 }
 

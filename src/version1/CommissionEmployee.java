@@ -2,7 +2,8 @@ package version1;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+import version2.MyDate;
+import version2.Name;
 /**
  *
  * @author User
@@ -10,24 +11,28 @@ package version1;/*
 public class CommissionEmployee {
 
     private int empID;
-    private String empName;
+    private Name empName;
+    private MyDate birthDate;
     private double totalSale;
 
     public CommissionEmployee() {
         this.empID = 0;
-        this.empName = "N/A";
+        this.empName = new Name("N/A","N/A","N/A");
+        this.birthDate = new MyDate(1,1,2000);
         this.totalSale = 0.0;
     }
 
-    public CommissionEmployee(int empID, String empName) {
+    public CommissionEmployee(int empID, Name empName) {
         this.empID = empID;
         this.empName = empName;
+        this.birthDate = new MyDate(1,1,2000);
         this.totalSale = 0.0;
     }
 
-    public CommissionEmployee(int empID, String empName, double totalSale) {
+    public CommissionEmployee(int empID, Name empName,MyDate birthDate, double totalSale) {
         this.empID = empID;
         this.empName = empName;
+        this.birthDate = birthDate;
         this.totalSale = totalSale;
     }
 
@@ -39,12 +44,20 @@ public class CommissionEmployee {
         this.empID = empID;
     }
 
-    public String getEmpName() {
+    public Name getEmpName() {
         return empName;
     }
 
-    public void setEmpName(String empName) {
+    public void setEmpName(Name empName) {
         this.empName = empName;
+    }
+
+    public MyDate getBirthDate(){
+        return birthDate;
+    }
+
+    public void setBirthDate(MyDate birthDate){
+        this.birthDate = birthDate;
     }
 
     public double getTotalSale() {
@@ -68,17 +81,21 @@ public class CommissionEmployee {
             commissionRate = 0.20;
         }
 
-        return commissionRate * this.totalSale;
+        double salary = commissionRate * this.totalSale;
+        if(this.birthDate != null && this.birthDate.month == 9){
+            salary += 500;
+        }
+        return salary;
     }
 
     @Override
     public String toString() {
-        return String.format("version1.CommissionEmployee: [ID: %d, Name: %s, Total Sale: %.2f, Commission Rate: %.2f]",
-                this.empID, this.empName, this.totalSale, this.computeSalary());
+        return String.format("CommissionEmployee: [ID: %d, Name: %s, DOB: %s, Total Sale: %.2f, Commission Rate: %.2f]",
+                this.empID, this.empName, this.birthDate,this.totalSale, this.computeSalary());
     }
 
     public void displayCommissionEmployee() {
-        System.out.printf("ID: %d | Name: %s | Total Sale: %.2f", this.empID, this.empName, this.totalSale);
+        System.out.printf("ID: %d | Name: %s | DOB: %s | Total Sale: %.2f", this.empID, this.empName,this.birthDate, this.totalSale);
     }
 
 }
