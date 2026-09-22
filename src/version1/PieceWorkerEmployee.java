@@ -2,8 +2,8 @@ package version1;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import version2.MyDate;
-import version2.Name;
+import version3.MyDate;
+import version3.Name;
 /**
  *
  * @author User

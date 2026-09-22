@@ -1,8 +1,6 @@
 package version1;
-import version2.MyDate;
-import version2.Name;
-
-import java.sql.SQLOutput;
+import version3.MyDate;
+import version3.Name;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
