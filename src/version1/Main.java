@@ -32,7 +32,7 @@ public class Main {
         Name janeName = new Name("Jane","Z","Doe");
         MyDate janeBirth = new MyDate(11,9,2005);
         CommissionEmployee comemp = new CommissionEmployee(102,janeName,janeBirth,5000.00);
-      //  CommissionEmployee emp = new CommissionEmployee(301, "Jane Doe", 5000.00);
+        //  CommissionEmployee emp = new CommissionEmployee(301, "Jane Doe", 5000.00);
 
         System.out.println("\n\n---Commission Employee Test---");
         System.out.println("[displayCommissionEmployee()]");
@@ -41,4 +41,3 @@ public class Main {
         System.out.println(comemp.toString());
     }
 }
-
